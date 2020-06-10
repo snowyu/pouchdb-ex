@@ -1,0 +1,39 @@
+language: node_js
+# cache:
+#   directories:
+#     - ~/.npm
+notifications:
+  email: false
+node_js:
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
+install:
+  - npm install
+script:
+  - npm run test:prod && npm run build
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: report-coverage
+      node_js: "10"
+      script:
+        - npm run test:prod
+        - npm run report-coverage
+    - stage: release
+      if: branch = master AND type != pull_request
+      node_js: lts/* #"10"
+      # Advanced: optionally overwrite your default `script` step to skip the tests
+      # script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+      # script:
+      #   - npm run build
+      #   - npm run deploy-docs && npm run semantic-release
