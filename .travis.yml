@@ -31,7 +31,7 @@ jobs:
       # script: skip
       deploy:
         provider: script
-        cleanup: false
+        #cleanup: false
         script:
           - npx semantic-release
       # script:
