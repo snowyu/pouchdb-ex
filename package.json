@@ -1,10 +1,10 @@
 {
   "name": "pouchdb-ex",
   "version": "0.0.0-development",
-  "description": "pouchdb extension plugin to tryGet/tryPut/tryRemove",
+  "description": "pouchdb extension plugin to tryGet/tryPut/tryRemove, fetchJson",
   "keywords": [
     "pouchdb",
-    "upsert"
+    "extension"
   ],
   "main": "dist/pouchdb-ex.umd.js",
   "module": "dist/pouchdb-ex.es5.js",
