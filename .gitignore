@@ -11,4 +11,5 @@ compiled
 .rpt2_cache
 docs
 types/pouchdb-ex.d.ts
-types/utils.d.ts
+types/pouchdb-fetch-json.d.ts
+types/pouchdb-try.d.ts
